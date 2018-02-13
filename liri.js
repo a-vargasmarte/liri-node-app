@@ -25,20 +25,13 @@ const spotifyObject = require(`./spotify.js`);
 let userSearch = process.argv.slice(3);
 let command = process.argv[2];
 
+let searchLog = userSearch.join(' ');
 
 let dataArray;
 
 // node liri.js spotify-this-song '<song name here>'
-function spotifySearch() {
-    console.log(spotifyObject);
-    if (dataArray === undefined) {
-        spotifyObject.spotifySearch.query = userSearch.join(' ');
-    }
-    else {
-        spotifyObject.spotifySearch.query = userSearch
-    }
-    // console.log(spotifyObject);
 
+function spotifyThis() {
     spotify.search(spotifyObject.spotifySearch, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
@@ -53,6 +46,32 @@ function spotifySearch() {
 
         console.log(spotifyResponse);
     });
+}
+
+let defaultQuery;
+
+function spotifySearch() {
+    // if our command is undefined...
+    if (process.argv[3] === undefined) {
+
+        // then invoke the spotifyThis() function
+        spotifyThis();
+    }
+
+    else {
+        // we will use the fs.appendFile method to add our searchLog to log.txt
+        fs.appendFile("log.txt", ", " + searchLog, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        });
+
+        spotifyObject.spotifySearch.query = searchLog
+        // invoke spotifyThis
+        spotifyThis();
+    }
+
+
 
 }
 
@@ -73,13 +92,8 @@ function tweetSearch() {
 }
 
 // node liri.js movie-this `<movie name here>`
-function movieSearch() {
-    let encodedMovieSearch = userSearch.join('+');
 
-    // then we run a request to the OMDB API with the movie specified
-    const movieQuery = `http://www.omdbapi.com/?t=${encodedMovieSearch}&y=&plot=short&apikey=trilogy`;
-
-    // then make a request using movieQuery
+function searchMovie() {
     request(movieQuery, function (e, r, b) {
         if (!e && r.statusCode === 200) {
             // console.log(JSON.parse(b));
@@ -97,6 +111,33 @@ function movieSearch() {
             console.log(movieResponse);
         }
     });
+}
+
+let defaultMovieSearch = `Mr. Nobody`;
+let encodedMovieSearch;
+let movieQuery;
+
+function movieSearch() {
+
+    if (process.argv[3] === undefined) {
+        movieQuery = `http://www.omdbapi.com/?t=${defaultMovieSearch}&y=&plot=short&apikey=trilogy`;
+        searchMovie();
+    }
+
+    else {
+        // we will use the fs.appendFile method to add our searchLog to log.txt
+        fs.appendFile("log.txt", ", " + searchLog, function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        });
+
+        encodedMovieSearch = userSearch.join('+');
+        // then we run a request to the OMDB API with the movie specified
+        movieQuery = `http://www.omdbapi.com/?t=${encodedMovieSearch}&y=&plot=short&apikey=trilogy`;
+        searchMovie();
+    }
+
 }
 
 // do-what-it-says

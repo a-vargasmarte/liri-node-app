@@ -1,7 +1,7 @@
 // our spotify search lives here
 const spotifySearch = {
     type: `track`,
-    query: ``,
+    query: `The Sign Ace of Base`,
     limit: 3,
 };
 
