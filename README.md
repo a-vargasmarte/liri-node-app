@@ -117,4 +117,4 @@ TWITTER_CONSUMER_SECRET=your-twitter-consumer-secret
 TWITTER_ACCESS_TOKEN_KEY=your-access-token-key
 TWITTER_ACCESS_TOKEN_SECRET=your-twitter-access-token-secret
 ```
-You will replace these placeholders *keys* and *secrets* with your own. See [API Keys](#API-keys) above to learn how to get these.
+You will replace these placeholders *keys* and *secrets* with your own. See [API Keys](#api-keys) above to learn how to get these.
