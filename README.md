@@ -13,7 +13,7 @@ Language Interpretation and Recognition Interface **(LIRI)** takes user commands
   * [Twitter API Keys](#twitter-api-keys)
   * [Spotify API Keys](#spotify-api-keys)
 * [Running this App Locally](#running-this-app-locally)
-  * [Creating your own .env file](#creating-your-own-.env-file)
+  * [Creating your own .env file](#creating-your-own-env-file)
 
 ## How it works
 
