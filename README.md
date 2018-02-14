@@ -4,6 +4,17 @@
 
 Language Interpretation and Recognition Interface **(LIRI)** takes user commands to send requests to Twitter, Spotify, and OMDB APIs. LIRI then displays responses to the user in the command line (or terminal).
 
+## Table of Contents
+
+* [How it works](#how-it-works)
+  * [Commands](#commands)
+  * [Commands in detail](#commands-in-detail)
+* [API Keys](#api-keys)
+  * [Twitter API Keys](twitter-api-keys)
+  * [Spotify API Keys](spotify-api-keys)
+* [Running this App Locally](#running-this-app-locally)
+  * [Creating your own .env file](#creating-your-own-.env-file)
+
 ## How it works
 
 ### Commands
@@ -86,7 +97,7 @@ From the same directory location of `liri.js`, type the following in git bash or
      
     * Copy the access token key and secret displayed at the bottom of the next screen. Paste them into your .env file, replacing the placeholders for `your-twitter-access-token-key` and `your-twitter-access-token-secret`.
 
-#### Spotify keys:
+#### Spotify API keys:
 
 1. Visit [this link] (https://developer.spotify.com/my-applications/#!/).
    
