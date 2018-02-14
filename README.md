@@ -61,12 +61,18 @@ From the same directory location of `liri.js`, type the following in git bash or
      
      * It's on Netflix!
 
+4. `node liri.js do-what-it-says`
+
+  * This will run the `spotify-this-song` command for "I Want it That Way" by following the text in `random.txt.`
+  
+  * The content in `random.txt` follows the format `*<command>*, *<request>*`. Thus, if you rewrite either the "command" or the "request" in `random.txt` the response for `do-what-it-says` will change.  
+
 **Psst!** A little bird told me this:
 > You will need to provide your own api keys for twitter, spotify, and OMDB in `keys.js` if you actually want these commands to work.
 
 ## API keys
 
-#### Get your Twitter API keys by following these steps:
+#### Twitter API keys:
 
 1. Visit [this link] (https://apps.twitter.com/app/new).
    
@@ -80,7 +86,7 @@ From the same directory location of `liri.js`, type the following in git bash or
      
     * Copy the access token key and secret displayed at the bottom of the next screen. Paste them into your .env file, replacing the placeholders for `your-twitter-access-token-key` and `your-twitter-access-token-secret`.
 
-#### Get your spotify keys by following these steps:
+#### Spotify keys:
 
 1. Visit [this link] (https://developer.spotify.com/my-applications/#!/).
    
@@ -89,3 +95,26 @@ From the same directory location of `liri.js`, type the following in git bash or
 3. Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
 
 4. On the next screen, scroll down to where you see your client id and client secret. You will copy and paste these values to your `.env` file to replace placeholders for `SPOTIFY_ID` and `SPOTIFY_SECRET`
+
+## Running this app locally
+
+If you want to clone this app from [my github repository](https://github.com/a-vargasmarte/liri-node-app), you need to supply your own `.env` file for it to work.
+
+### Creating your own .env file
+
+Using terminal or bash, navigate to your cloned directory, and create a `.env` file using ```touch .env ```, then open via Sublime, VS Code, or your favorite text editor and add the following to it:
+
+```js
+// Spotify API keys
+
+SPOTIFY_ID=your-spotify-id
+SPOTIFY_SECRET=your-spotify-secret
+
+// Twitter API keys
+
+TWITTER_CONSUMER_KEY=your-twitter-consumer-key
+TWITTER_CONSUMER_SECRET=your-twitter-consumer-secret
+TWITTER_ACCESS_TOKEN_KEY=your-access-token-key
+TWITTER_ACCESS_TOKEN_SECRET=your-twitter-access-token-secret
+```
+You will replace these placeholders *keys* and *secrets* with your own. See [API Keys](#API-keys) above to learn how to get these.
